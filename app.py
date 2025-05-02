@@ -1,12 +1,52 @@
-from flask import Flask, request
+from flask import Flask, request, render_template_string
+import os
 
 app = Flask(__name__)
 
+#Armazenar ultimo dado recebido
+ultimo_dado = {}
+
 @app.route('/dados', methods = ['POST'])
 def receber_dados():
+    global ultimo_dado
     data= request.json
+    ultimo_dado = data  #Salva os ultimos dados recebidos
     print(f"Dados recebidos: {data}")
     return {"status": "ok"}, 200
+
+@app.route('/dashbord')
+def dashboard():
+    global ultimo_dado
+    html = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Dashboard IoT</title>
+        <meta http-equiv="refresh" content="2">
+        <style>
+            body { font-family: Arial; text-align: center; margin-top: 50px; }
+            .box { display: inline-block; border: 1px solid #ccc; padding: 20px; border-radius: 10px; }
+            h1 { color: #333; }
+            p { font-size: 20px; }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <h1>Últimos Dados Recebidos</h1>
+            <p><strong>Botão A:</strong> {{ botao_a }}</p>
+            <p><strong>Botão B:</strong> {{ botao_b }}</p>
+            <p><strong>Joystick X:</strong> {{ x }}</p>
+            <p><strong>Joystick Y:</strong> {{ y }}</p>
+        </div>
+    </body>
+    </html>
+    """
+    return render_template_string(html,
+        botao_a=ultimo_dado.get("botao_a", "N/A"),
+        botao_b=ultimo_dado.get("botao_b", "N/A"),
+        x=ultimo_dado.get("x", "N/A"),
+        y=ultimo_dado.get("y", "N/A")
+    )
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=10000)
