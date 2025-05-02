@@ -14,7 +14,7 @@ def receber_dados():
     print(f"Dados recebidos: {data}")
     return {"status": "ok"}, 200
 
-@app.route('/dashbord')
+@app.route('/dashboard')
 def dashboard():
     global ultimo_dado
     html = """
