@@ -46,7 +46,7 @@ def dashboard_botoes():
     return render_template_string(html,
         botao_a=status_botao_a,
         botao_b=status_botao_b
-)
+    )
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
