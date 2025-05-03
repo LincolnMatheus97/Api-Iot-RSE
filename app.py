@@ -41,9 +41,16 @@ def dashboard():
     </body>
     </html>
     """
+
+    valor_botao_a = ultimo_dado.get("botao_a")
+    valor_botao_b = ultimo_dado.get("botao_b")
+
+    status_botao_a = "Pressionado!" if valor_botao_a == 1 else "solto" if valor_botao_a == 0 else "N/A"
+    status_botao_b = "Pressionado!" if valor_botao_b == 1 else "solto" if valor_botao_b == 0 else "N/A"
+    
     return render_template_string(html,
-        botao_a=ultimo_dado.get("botao_a", "N/A"),
-        botao_b=ultimo_dado.get("botao_b", "N/A"),
+        botao_a=status_botao_a,
+        botao_b=status_botao_b,
         x=ultimo_dado.get("x", "N/A"),
         y=ultimo_dado.get("y", "N/A")
     )
