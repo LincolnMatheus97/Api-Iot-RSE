@@ -22,7 +22,7 @@ def dashboard():
     <html>
     <head>
         <title>Dashboard IoT</title>
-        <meta http-equiv="refresh" content="2">
+        <meta http-equiv="refresh" content="1">
         <style>
             body { font-family: Arial; text-align: center; margin-top: 50px; }
             .box { display: inline-block; border: 1px solid #ccc; padding: 20px; border-radius: 10px; }
