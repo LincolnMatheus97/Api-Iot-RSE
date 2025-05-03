@@ -48,6 +48,36 @@ def dashboard_botoes():
         botao_b=status_botao_b
     )
 
+@app.route('/dashboard/joystick')
+def dashboard_joystick():
+    global ultimo_dado
+    html = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Status do Joystick</title>
+        <meta http-equiv="refresh" content="1">
+        <style>
+            body { font-family: Arial; text-align: center; margin-top: 50px; }
+            .box { display: inline-block; border: 1px solid #ccc; padding: 20px; border-radius: 10px; }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <h1>Status do Joystick</h1>
+            <p><strong>X:</strong> {{ x }}</p>
+            <p><strong>Y:</strong> {{ y }}</p>
+            <p><strong>Direção:</strong> {{ direcao }}</p>
+        </div>
+    </body>
+    </html>
+    """
+    x = ultimo_dado.get("x", "N/A")
+    y = ultimo_dado.get("y", "N/A")
+    direcao = ultimo_dado.get("direcao", "N/A")
+
+    return render_template_string(html, x=x, y=y, direcao=direcao)
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
