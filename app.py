@@ -37,8 +37,8 @@ def dashboard_botoes():
     </body>
     </html>
     """
-    valor_botao_a = ultimo_dado("botao_a")
-    valor_botao_b = ultimo_dado("botao_b")
+    valor_botao_a = ultimo_dado.get("botao_a")
+    valor_botao_b = ultimo_dado.get("botao_b")
 
     status_botao_a = "Pressionado!" if valor_botao_a == 1 else "Solto" if valor_botao_a == 0 else "N/A"
     status_botao_b = "Pressionado!" if valor_botao_b == 1 else "Solto" if valor_botao_b == 0 else "N/A"
