@@ -1,7 +1,9 @@
 from flask import Flask, request, render_template_string
+from flask_socketio import SocketIO, emit
 import os
 
 app = Flask(__name__)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 #Armazenar ultimo dado recebido
 ultimo_dado = {}
@@ -12,6 +14,7 @@ def receber_dados():
     data= request.json
     ultimo_dado = data  #Salva os ultimos dados recebidos
     print(f"Dados recebidos: {data}")
+    socketio.emit('novo_dado', data) 
     return {"status": "ok"}, 200
 
 @app.route('/dashboard/botoes')
@@ -55,20 +58,23 @@ def dashboard_joystick():
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Status do Joystick</title>
-        <meta http-equiv="refresh" content="1">
-        <style>
-            body { font-family: Arial; text-align: center; margin-top: 50px; }
-            .box { display: inline-block; border: 1px solid #ccc; padding: 20px; border-radius: 10px; }
-        </style>
+        <title>Joystick</title>
+        <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+        <script>
+            const socket = io();
+
+            socket.on("novo_dado", function(dado) {
+                document.getElementById("x").innerText = dado.x;
+                document.getElementById("y").innerText = dado.y;
+                document.getElementById("direcao").innerText = dado.direcao;
+            });
+        </script>
     </head>
     <body>
-        <div class="box">
-            <h1>Status do Joystick</h1>
-            <p><strong>X:</strong> {{ x }}</p>
-            <p><strong>Y:</strong> {{ y }}</p>
-            <p><strong>Direção:</strong> {{ direcao }}</p>
-        </div>
+        <h1>Status do Joystick (Live)</h1>
+        <p><strong>X:</strong> <span id="x">--</span></p>
+        <p><strong>Y:</strong> <span id="y">--</span></p>
+        <p><strong>Direção:</strong> <span id="direcao">--</span></p>
     </body>
     </html>
     """
@@ -80,4 +86,4 @@ def dashboard_joystick():
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
-    app.run(host='0.0.0.0', port=port)
+    socketio.run(app, host='0.0.0.0', port=port)
