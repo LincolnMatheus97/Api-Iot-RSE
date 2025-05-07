@@ -69,6 +69,10 @@ def dashboard_joystick():
                 document.getElementById("direcao").innerText = dado.direcao;
             });
         </script>
+        <style>
+            body { font-family: Arial; text-align: center; margin-top: 50px; }
+            .box { display: inline-block; border: 1px solid #ccc; padding: 20px; border-radius: 10px; }
+        </style>
     </head>
     <body>
         <h1>Status do Joystick (Live)</h1>
