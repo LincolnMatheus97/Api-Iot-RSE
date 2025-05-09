@@ -1,0 +1,30 @@
+// filepath: c:\Users\linco\Api-Iot-RSE\templates\dashboard_joystick.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joystick</title>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script>
+        const socket = io(); // Conecta ao servidor SocketIO na mesma origem
+
+        socket.on("novo_dado", function(dado) {
+            // Verifica se os dados do joystick existem
+            document.getElementById("x").innerText = (dado && typeof dado.x !== 'undefined') ? dado.x : "--";
+            document.getElementById("y").innerText = (dado && typeof dado.y !== 'undefined') ? dado.y : "--";
+            document.getElementById("direcao").innerText = (dado && typeof dado.direcao !== 'undefined') ? dado.direcao : "--";
+        });
+    </script>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 50px; }
+        .box { display: inline-block; border: 1px solid #ccc; padding: 20px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Status do Joystick </h1>
+    <div class="box">
+    <p><strong>X:</strong> <span id="x">--</span></p>
+    <p><strong>Y:</strong> <span id="y">--</span></p>
+    <p><strong>Direção:</strong> <span id="direcao">--</span></p>
+    </div>
+</body>
+</html>
