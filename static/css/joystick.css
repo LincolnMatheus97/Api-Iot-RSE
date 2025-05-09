@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'VT323', monospace;
+}
+
 html, body { 
     height: 100%; 
     margin: 0; 
@@ -13,7 +19,7 @@ body {
 
 header { 
     height: 10vh;
-    background-color: #4CAF50;
+    background-color: #448a46;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,16 +41,22 @@ main {
     
 }
 
-footer {
+footer{
     height: 10vh; 
     background-color: #ccc; 
     display: flex; 
     align-items: center;
-    justify-content: center;
+    justify-content:space-around;
     text-align: center;
     margin: 10px;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.div-footer {
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 .box { 
@@ -68,4 +80,15 @@ footer {
     width: 200px;
     height: 200px; 
     transition: transform 0.5s ease-out;
+}
+
+#imagem-git {
+    width: 50px;
+    height: 50px;
+}
+
+#header-gif {
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
 }
