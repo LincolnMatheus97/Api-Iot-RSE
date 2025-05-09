@@ -8,17 +8,17 @@ document.addEventListener("DOMContentLoaded", (evento) => {
     let anguloLogicoAtual = 0;  // Ângulo lógico da direção atual (0-359 graus, 0 = Norte)
     let anguloVisualAtual = 0;  // Ângulo de rotação aplicado ao CSS, pode acumular voltas
 
-    // Mapeamento de direções para ângulos (90 = Norte, ângulos notaveis)
+    // Mapeamento de direções para ângulos (0 = Norte, ângulos notaveis)
     const angulosDirecao = {
-        'LESTE': 0,
-        'NORDESTE': 45,
-        'NORTE': 90,
-        'NOROESTE': 135,
-        'OESTE': 180,
-        'SUDOESTE': 225,
-        'SUL': 270,
-        'SUDESTE': 315,
-        'CENTRO': 90 // Centro aponta para Norte por padrão
+        'NORTE': 0,
+        'NOROESTE': 45,
+        'OESTE': 90,
+        'SUOESTE': 135,
+        'SUL': 180,
+        'SUDESTE': 225,
+        'LESTE': 270,
+        'NORDESTE': 315,
+        'CENTRO': 0 // Centro aponta para Norte por padrão
     };
 
     socket.on("novo_dado", function (dado) {
