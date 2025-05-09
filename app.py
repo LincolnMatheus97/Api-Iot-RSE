@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template_string
+from flask import Flask, request, render_template
 from flask_socketio import SocketIO, emit
 import os
 
@@ -19,11 +19,11 @@ def receber_dados():
 
 @app.route('/dashboard/botoes')
 def dashboard_botoes():
-    return render_template_string('dashboard_botoes/botoes.html')
+    return render_template('botoes.html')
 
 @app.route('/dashboard/joystick')
 def dashboard_joystick():
-    return render_template_string('dashboard_joystick/joystick.html')
+    return render_template('joystick.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
