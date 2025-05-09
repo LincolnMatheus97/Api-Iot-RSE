@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", (evento) => {
     const socket = io(); // Conecta ao servidor SocketIO na mesma origem
 
     socket.on("novo_dado", function (dado) {
