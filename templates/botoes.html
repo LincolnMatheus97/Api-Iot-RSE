@@ -1,16 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Status dos Botões</title>
+    <title>Joystick</title>
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/botoes.css') }}">
 </head>
 <body>
-    <div class="box">
-        <h1>Status dos Botões</h1>
-        <p><strong>Botão A:</strong> <span id="status_botao_a">--</span></p>
-        <p><strong>Botão B:</strong> <span id="status_botao_b">--</span></p>
-    </div>
+    <header>
+        <h1>IOT - Verificar Botões</h1>
+        <img src="{{ url_for('static', filename='images/botao.gif')}}" alt="icone-animado" id="header-gif">
+    </header>
+    <br>
+    <main>
+        <div class="box">
+            <h1>Status dos Botões</h1>
+            <!-- <p><strong>Botão A:</strong> <span id="status_botao_a">--</span></p> -->
+            <!-- <p><strong>Botão B:</strong> <span id="status_botao_b">--</span></p> -->
+             <div class="botoes">
+                <button id="botao-A" class="botao A">A</button>
+                <button id="botao-B" class="botao B">B</button>
+             </div>
+        </div>
+    </main>
+    <br>
+    <footer>
+        <div>
+           <p>
+            Desenvolvido por <strong>Lincoln Matheus</strong>
+            <br>
+            2025. Todos os direitos reservados
+            </p> 
+        </div>
+        <br>
+        <div class="div-footer">
+            <figure>
+                <a href="https://github.com/LincolnMatheus97/Iot-rosa-do-ventos" target="_blank" >
+                <img src="{{ url_for('static', filename='images/repositorio.png')}}" alt="gitHubProjeto" id="imagem-git">
+                </a>
+                <figcaption>Repositório Git do <em>Projeto</em>!</figcaption>
+            </figure>
+            <figure>
+                <a href="https://github.com/LincolnMatheus97" target="_blank" >
+                <img src="{{ url_for('static', filename='images/git.png')}}" alt="meuGit" id="imagem-git">
+                </a>
+                <figcaption>Meu Perfil no<em> GitHub</em>!</figcaption>
+            </figure>
+        </div>
+    </footer>
     <script src="{{ url_for('static', filename='js/botoes.js') }}"></script>
 </body>
 </html>
