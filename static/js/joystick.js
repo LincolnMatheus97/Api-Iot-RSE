@@ -8,17 +8,17 @@ document.addEventListener("DOMContentLoaded", (evento) => {
     let anguloLogicoAtual = 0;  // Ângulo lógico da direção atual (0-359 graus, 0 = Norte)
     let anguloVisualAtual = 0;  // Ângulo de rotação aplicado ao CSS, pode acumular voltas
 
-    // Mapeamento de direções para ângulos (0 = Norte, sentido horário)
+    // Mapeamento de direções para ângulos (90 = Norte, ângulos notaveis)
     const angulosDirecao = {
-        'NORTE': 0,
+        'LESTE': 0,
         'NORDESTE': 45,
-        'LESTE': 90,
-        'SUDESTE': 135,
-        'SUL': 180,
+        'NORTE': 90,
+        'NOROESTE': 135,
+        'OESTE': 180,
         'SUDOESTE': 225,
-        'OESTE': 270,
-        'NOROESTE': 315,
-        'CENTRO': 0 // Centro aponta para Norte por padrão
+        'SUL': 270,
+        'SUDESTE': 315,
+        'CENTRO': 90 // Centro aponta para Norte por padrão
     };
 
     socket.on("novo_dado", function (dado) {
@@ -48,24 +48,6 @@ document.addEventListener("DOMContentLoaded", (evento) => {
                     anguloAlvoLogico = angulosDirecao[direcaoUpper];
                 } else {
                     anguloAlvoLogico = anguloLogicoAtual; // Mantém o ângulo se a direção for desconhecida
-                }
-            } else if (dado && typeof dado.x !== 'undefined' && typeof dado.y !== 'undefined') {
-                // Fallback para cálculo com X e Y se 'dado.direcao' não for string
-                let xPlaca = parseFloat(dado.x);
-                let yPlaca = parseFloat(dado.y);
-                let xCalculo = xPlaca - 50;
-                let yCalculo = yPlaca - 50;
-
-                const thresholdCentroJS = 5;
-                if (Math.abs(xCalculo) < thresholdCentroJS && Math.abs(yCalculo) < thresholdCentroJS) {
-                    anguloAlvoLogico = angulosDirecao['CENTRO']; // Ou anguloLogicoAtual para não mover
-                } else {
-                    let anguloRad = Math.atan2(yCalculo, xCalculo);
-                    let anguloDeg = anguloRad * (180 / Math.PI);
-                    // O ângulo visual direto que queremos (Norte = 0, Leste = -90, etc.)
-                    let anguloVisualDireto = 90 - anguloDeg;
-                    // Normaliza para 0-359 para ser o anguloAlvoLogico
-                    anguloAlvoLogico = (Math.round(anguloVisualDireto) % 360 + 360) % 360;
                 }
             } else {
                 // Nenhum dado útil para rotação, não faz nada
