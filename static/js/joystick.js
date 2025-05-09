@@ -18,42 +18,53 @@ document.addEventListener("DOMContentLoaded", (evento) => {
         elementoDirecao.innerText = (dado && typeof dado.direcao !== 'undefined') ? dado.direcao : "--";
 
         // Atualiza a rosa dos ventos
-        if (elementoRosaDosVentos && typeof dado.x !== 'undefined' && typeof dado.y !== 'undefined') {
-            let xVal = parseFloat(dado.x);
-            let yVal = parseFloat(dado.y);
+        if (elementoRosaDosVentos) {
+            if (dado && typeof dado.direcao === 'string') { // Prioriza a string de direção da placa
+                const direcaoUpper = dado.direcao.toUpperCase();
+                let anguloRotacao = 0; // Ângulo para rotacionar a imagem
 
-            // Evita divisão por zero ou comportamento indefinido se x e y forem 0
-            if (xVal === 0 && yVal === 0) {
-                // Se o joystick estiver no centro, não rotaciona a rosa dos ventos
-                elementoRosaDosVentos.style.transform = 'rotate(0deg)';
-            } else {
-                // Calcula o ângulo usando atan2, que leva em conta o quadrante correto
-                // atan2(y, x) retorna o ângulo em radianos entre o vetor (x, y) e o eixo x
-                let anguloRad = Math.atan2(yVal, xVal);
+                // Define o ângulo de rotação para que a MARCAÇÃO da direção na imagem aponte para cima.
+                // Assumindo que a imagem da rosa dos ventos tem N no topo.
+                switch (direcaoUpper) {
+                    case 'NORTE':    anguloRotacao = 0; break;
+                    case 'NORDESTE': anguloRotacao = -45; break;
+                    case 'LESTE':    anguloRotacao = -90; break;
+                    case 'SUDESTE':  anguloRotacao = -135; break;
+                    case 'SUL':      anguloRotacao = -180; break;
+                    case 'SUDOESTE': anguloRotacao = -225; break;
+                    case 'OESTE':    anguloRotacao = -270; break;
+                    case 'NOROESTE': anguloRotacao = -315; break;
+                    case 'CENTRO':
+                        anguloRotacao = 0; // Quando a placa diz "Centro", aponta para Norte.
+                        break;
+                    default:
+                        anguloRotacao = 0; // Padrão para Norte se direção desconhecida
+                }
+                elementoRosaDosVentos.style.transform = `rotate(${anguloRotacao}deg)`;
 
-                // Converte radianos para graus
-                let anguloDeg = anguloRad * (180 / Math.PI);
+            } else if (dado && typeof dado.x !== 'undefined' && typeof dado.y !== 'undefined') {
+                // Fallback: Executa APENAS se 'dado.direcao' NÃO for uma string válida (ou não for enviada).
+                // Com base no seu código C, 'dado.direcao' é sempre enviada, então este bloco pode ser raramente usado.
+                let xPlaca = parseFloat(dado.x);
+                let yPlaca = parseFloat(dado.y);
 
-                // Ajusta a rotação para que 0 graus fique para cima
-                let rotacaoFinal = 90 - anguloDeg;
-                
-                // Aplica a rotação
-                elementoRosaDosVentos.style.transform = `rotate(${rotacaoFinal}deg)`; 
+                // Transladar os valores para que o centro (50,50) se torne (0,0)
+                let xCalculo = xPlaca - 50;
+                let yCalculo = yPlaca - 50;
+
+                // Pequena zona morta no JS para flutuações muito próximas do centro absoluto (50,50)
+                // caso 'dado.direcao' não seja fornecida.
+                const thresholdCentroJS = 5;
+                if (Math.abs(xCalculo) < thresholdCentroJS && Math.abs(yCalculo) < thresholdCentroJS) {
+                    elementoRosaDosVentos.style.transform = 'rotate(0deg)'; // Centro, aponta para Norte
+                } else {
+                    // Calcula o ângulo para fazer o VETOR do joystick apontar para cima
+                    let anguloRad = Math.atan2(yCalculo, xCalculo); // yCalculo primeiro
+                    let anguloDeg = anguloRad * (180 / Math.PI);
+                    let rotacaoFinal = 90 - anguloDeg; // Ajuste para alinhar com o topo da tela
+                    elementoRosaDosVentos.style.transform = `rotate(${rotacaoFinal}deg)`;
+                }
             }
-        } else if (elementoRosaDosVentos && typeof dado.direcao === 'string') {
-            let anguloDirecao = 0;
-            switch (dado.direcao.toUpperCase()) {
-                case 'Norte': anguloDirecao = 0; break;
-                case 'Nordeste': anguloDirecao = -45; break;
-                case 'Leste': anguloDirecao = -90; break;
-                case 'Sudeste': anguloDirecao = -135; break;
-                case 'Sul': anguloDirecao = -180; break;
-                case 'Sudoeste': anguloDirecao = -225; break; // ou 135
-                case 'Oeste': anguloDirecao = -270; break; // ou 90
-                case 'Noroeste': anguloDirecao = -315; break; // ou 45
-                default: anguloDirecao = 0; // Padrão para Norte se desconhecido
-            }
-            elementoRosaDosVentos.style.transform = `rotate(${anguloDirecao}deg)`;
         }
 
     });
