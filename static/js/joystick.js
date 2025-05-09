@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", (evento) => {
         'NORTE': 0,
         'NOROESTE': 45,
         'OESTE': 90,
-        'SUOESTE': 135,
+        'SUDOESTE': 135,
         'SUL': 180,
         'SUDESTE': 225,
         'LESTE': 270,
