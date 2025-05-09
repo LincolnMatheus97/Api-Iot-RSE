@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", (evento) => {
         const elementoX = getById("x");
         const elementoY = getById("y");
         const elementoDirecao = getById("direcao");
-        const elementoRosaDosVentos = getById("rosa_dos_ventos");
+        const elementoRosaDosVentos = getById("rosaDosVentos");
 
         // Atualiza os elementos com os dados recebidos
         elementoX.innerText = (dado && typeof dado.x !== 'undefined') ? dado.x : "--";
