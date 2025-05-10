@@ -1,4 +1,6 @@
-import { getById } from "./joystick.js";
+function getById(id) {
+    return document.getElementById(id);
+}
 
 document.addEventListener("DOMContentLoaded", (evento) => {
     const socket = io(); // Conecta ao servidor SocketIO na mesma origem

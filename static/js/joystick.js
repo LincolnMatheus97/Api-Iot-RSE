@@ -1,4 +1,4 @@
-export function getById(id) {
+function getById(id) {
     return document.getElementById(id);
 }
 
