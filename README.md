@@ -43,7 +43,7 @@ Esta API Flask com WebSocket é o **servidor de nuvem** criado para receber, pro
 ## 🗂️ Estrutura do Repositório
 
 ```text
-api-flask/
+Api-Iot-RSE/
 ├── templates/
 │   ├── botoes.html
 │   └── joystick.html
