@@ -36,10 +36,6 @@ Esta API Flask com WebSocket é o **servidor de nuvem** criado para receber, pro
 
 ---
 
-> 📌 O desenvolvimento desta API foi feito com base nos objetivos da atividade prática, respeitando os critérios técnicos e explorando desafios extras com foco no aprendizado e domínio do ecossistema IoT.
-
----
-
 ## 🗂️ Estrutura do Repositório
 
 ```text
