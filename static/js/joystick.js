@@ -1,4 +1,4 @@
-function getById(id) {
+export function getById(id) {
     return document.getElementById(id);
 }
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", (evento) => {
         'CENTRO': 0 // Centro aponta para Norte por padrão
     };
 
-    socket.on("novo_dado", function (dado) {
+    socket.on("novo_dado", (dado) => {
         const elementoX = getById("x");
         const elementoY = getById("y");
         const elementoDirecao = getById("direcao");

@@ -76,20 +76,25 @@ footer{
 }
 
 .botoes {
-    border: 1px solid black;
     padding: 20px;
     display: flex;
     gap: 50px;
 }
 
 .botao {
-
     border-radius: 50%;
     width: 70px;
     height: 70px;
     font-size: 2.5rem;
     background-color: #111111;
     box-shadow: inset 5px 5px 10px rgb(71, 71, 71);
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+
+.botao.pressionado {
+    background-color: #333333; 
+    box-shadow: inset 3px 3px 5px rgb(50, 50, 50), 0px 2px 2px rgba(0,0,0,0.2); 
+    transform: scale(0.95); 
 }
 
 .A {
