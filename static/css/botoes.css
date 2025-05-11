@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'VT323', monospace;
+}
+
+html, body { 
+    height: 100%; 
+    margin: 0; 
+    padding: 0;
+}
+
+body { 
+    background-color: #f0f0f0; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header { 
+    height: 10vh;
+    background-color: #448a46;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+    border-radius: 6px;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    height: 80vh;
+    font-family: Arial; 
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+footer{
+    height: 10vh; 
+    background-color: #ccc; 
+    display: flex; 
+    align-items: center;
+    justify-content:space-around;
+    text-align: center;
+    margin: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.div-footer {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.box { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc; 
+    padding: 20px;
+    margin: 30px;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.botoes {
+    padding: 20px;
+    display: flex;
+    gap: 50px;
+}
+
+.botao {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    font-size: 2.5rem;
+    background-color: #111111;
+    box-shadow: inset 5px 5px 10px rgb(71, 71, 71);
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+
+.botao.pressionado {
+    background-color: #333333; 
+    box-shadow: inset 3px 3px 5px rgb(50, 50, 50), 0px 2px 2px rgba(0,0,0,0.2); 
+    transform: scale(0.95); 
+}
+
+.A {
+    color: #35a539;
+}
+
+.B {
+    color: #b9190e;
+}
+
+#imagem-git {
+    width: 50px;
+    height: 50px;
+}
+
+#header-gif {
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+}
