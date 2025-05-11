@@ -3,68 +3,66 @@
     box-sizing: border-box;
     font-family: 'VT323', monospace;
     margin: 0;
-    padding: 0;
+    padding: 0; 
 }
 
 html, body {
-    height: 100%;
+    height: 100%; 
 }
 
 body {
     background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    min-height: 100%; 
+                     
 }
 
-/* HEADER - Estilo consistente com botoes.css */
 header {
-    min-height: 60px; /* Igual ao botoes.css */
+    min-height: 60px;
     background-color: #448a46;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10px 15px;
+    padding: 10px 15px; 
     margin: 10px;
     border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    flex-shrink: 0; 
 }
 
 header h1 {
-    font-size: 1.6rem; /* Igual ao botoes.css */
+    font-size: 1.6rem;
+
 }
 
-/* MAIN - Estilo consistente com botoes.css */
 main {
-    flex-grow: 1;
-    font-family: Arial, sans-serif; /* Fallback */
+    flex-grow: 1; 
+    font-family: Arial, sans-serif;
     text-align: center;
     display: flex;
-    flex-direction: column; /* Empilha .box por padrão */
+    flex-direction: column;
     align-items: center;
-    /* justify-content: center;  Pode ser center ou space-around dependendo se as boxes preenchem */
+    justify-content: center; 
     padding: 20px 15px;
-    width: 100%;
-    gap: 20px; /* Espaço entre as .box */
+    width: 100%; 
 }
 
-/* FOOTER - Estilo consistente com botoes.css */
 footer{
     min-height: 60px;
     background-color: #ccc;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around; /* Igual ao botoes.css */
+    justify-content: space-around; 
     text-align: center;
     padding: 15px;
     margin: 10px;
     border-radius: 6px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
-    flex-shrink: 0;
-    gap: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); 
+    flex-shrink: 0; 
+    gap: 10px; 
 }
 
 .div-footer {
@@ -76,21 +74,20 @@ footer{
 }
 
 .div-footer figure {
-    margin: 5px 0; /* Igual ao botoes.css */
+    margin: 5px 0;
 }
 
-/* BOX - Estilo base consistente, com ajustes para conteúdo do joystick */
 .box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
-    padding: 20px;
-    margin: 10px 0; /* Margem vertical, main centraliza horizontalmente */
+    padding: 20px; 
+    margin: 15px 0; 
     width: 90%;
-    max-width: 380px; /* Pode ser um pouco maior para o joystick se necessário */
-    min-height: 250px; /* Ajustar para conteúdo do joystick */
+    max-width: 350px; 
+    min-height: 250px; 
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -98,116 +95,75 @@ footer{
 }
 
 .box h1 {
-    font-size: 1.6rem; /* Consistente com botoes.css */
-    margin-bottom: 15px;
+    font-size: 1.6rem; 
+    margin-bottom: 15px; 
 }
 
-/* Estilos específicos para os parágrafos de status do joystick */
-.box p {
-    font-size: 1.2rem; /* Um pouco maior para dados do joystick */
-    margin: 8px 0;
-    line-height: 1.5;
-}
-.box p strong {
-    color: #444;
-}
-.box p span {
-    font-weight: bold;
-    color: #111;
-}
-
-/* ROSA DOS VENTOS - Estilo específico */
 #rosaDosVentos {
-    width: 60%; /* Ajustar conforme necessário para caber bem */
-    max-width: 160px; /* Limite máximo */
+    width: 70%; /* Ajustar conforme necessário */
+    max-width: 140px; /* Ajustar conforme necessário */
     height: auto;
     transition: transform 0.5s ease-out;
-    margin-top: 10px; /* Espaço se houver título acima dela na mesma box */
 }
 
-/* ÍCONES - Estilo consistente */
-.footer-icon { /* Usar esta classe no HTML para as imagens do footer */
-    width: 35px;
-    height: 35px;
+
+#imagem-git, #header-gif {
+    width: 35px; 
+    height: 35px; 
 }
 
 #header-gif {
-    width: 35px;
-    height: 35px;
-    margin-left: 10px; /* Igual ao botoes.css */
+    margin-left: 10px;
 }
 
-
-/* --- MEDIA QUERIES --- (Consistentes com botoes.css, com ajustes para joystick se necessário) */
-
-/* Tablets e telas um pouco maiores */
-@media (min-width: 768px) { /* Ponto de quebra para layout lado a lado das .box */
-    main {
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: flex-start; /* Alinhar ao topo se tiverem alturas diferentes */
-    }
+/* Media Query para Tablets e telas um pouco maiores */
+@media (min-width: 600px) {
     .box {
-        width: 45%; /* Duas caixas por linha */
-        margin: 15px; /* Adicionar margem para espaçamento */
-        max-width: 400px; /* Igual ao botoes.css */
+        /* width: 45%; */ /* Só se tiver múltiplas boxes lado a lado */
+        max-width: 400px;
     }
-    /* Estilos de footer e div-footer para telas maiores */
     .div-footer {
         flex-direction: row;
         gap: 30px;
     }
     footer {
         flex-direction: row;
-        justify-content: space-between;
-    }
-    /* Ajustes de fonte se necessário para consistência */
-    header h1 {
-        font-size: 1.8rem; /* Se usado no botoes.css para este breakpoint */
-    }
-    .box h1 {
-        font-size: 1.5rem; /* Se usado no botoes.css para este breakpoint */
-    }
-     .box p {
-        font-size: 1.1rem; /* Se usado no botoes.css para este breakpoint */
-    }
-    #rosaDosVentos {
-        max-width: 180px;
-    }
-    .footer-icon, #header-gif {
-        width: 40px; /* Aumentar um pouco em telas maiores */
-        height: 40px;
+        justify-content: space-between; /* Alinhar texto à esquerda e ícones à direita */
     }
 }
 
-/* Celulares Menores */
-@media (max-width: 480px) { /* Ponto de quebra para ajustes mais finos em celulares */
+
+/* Media Query para Tablets (orientação retrato e celulares maiores) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    #imagem-git, #header-gif {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Media Query para Celulares Menores */
+@media (max-width: 360px) { /* Ponto de quebra para telas bem pequenas */
     header h1 {
         font-size: 1.3rem;
     }
     #header-gif {
-        /* display: none; Opcional, se quiser esconder */
-        width: 28px;
-        height: 28px;
-    }
-    main {
-        padding: 15px 10px;
-        gap: 15px;
+        display: none;
     }
     .box {
         padding: 15px;
-        min-height: auto; /* Altura baseada no conteúdo */
-        width: 95%;
+        min-height: auto;
+        width: 95%; /* Ocupar mais da tela */
     }
     .box h1 {
         font-size: 1.2rem;
     }
-    .box p {
-        font-size: 1rem;
-    }
     #rosaDosVentos {
-        max-width: 130px;
+        max-width: 100px;
     }
+
     footer {
         font-size: 0.85rem;
         padding: 10px;
@@ -216,7 +172,7 @@ footer{
     .div-footer figure figcaption {
         font-size: 0.75rem;
     }
-    .footer-icon {
+    #imagem-git {
         width: 25px;
         height: 25px;
     }
