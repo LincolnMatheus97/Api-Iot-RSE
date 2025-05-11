@@ -2,71 +2,67 @@
 * {
     box-sizing: border-box;
     font-family: 'VT323', monospace;
-    margin: 0; /* Resetar margens padrão */
-    padding: 0; /* Resetar paddings padrão */
+    margin: 0;
+    padding: 0; 
 }
 
 html, body {
-    height: 100%; /* Faz html e body ocuparem 100% da altura da viewport */
-    /* margin: 0;  Já está no seletor * */
-    /* padding: 0; Já está no seletor * */
+    height: 100%; 
 }
 
 body {
     background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
-    min-height: 100%; /* Garante que o body ocupe pelo menos a altura da viewport */
-                     /* Para flexbox, 100% aqui funciona bem com html height 100% */
+    min-height: 100%; 
+                     
 }
 
 header {
-    /* height: auto; */ /* Não é estritamente necessário com min-height */
-    min-height: 60px; /* Altura mínima para o header, pode ser um valor fixo menor */
+    min-height: 60px;
     background-color: #448a46;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10px 15px; /* Padding vertical e horizontal */
+    padding: 10px 15px; 
     margin: 10px;
     border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra um pouco mais sutil */
-    flex-shrink: 0; /* Impede que o header encolha se o conteúdo do main for grande */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    flex-shrink: 0; 
 }
 
 header h1 {
-    font-size: 1.6rem; /* Tamanho base um pouco maior */
-    /* margin: 0; Já está no seletor * */
+    font-size: 1.6rem;
+
 }
 
 main {
-    flex-grow: 1; /* ESSENCIAL: Faz o main ocupar o espaço vertical restante */
+    flex-grow: 1; 
     font-family: Arial, sans-serif;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centraliza a .box verticalmente no espaço do main */
-    padding: 20px 15px; /* Padding vertical e horizontal */
-    width: 100%; /* Ocupa a largura total para centralizar seu conteúdo */
+    justify-content: center; 
+    padding: 20px 15px;
+    width: 100%; 
 }
 
 footer{
-    /* height: auto; */
-    min-height: 60px; /* Altura mínima para o footer */
+    min-height: 60px;
     background-color: #ccc;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centralizar conteúdo do footer */
+    justify-content: space-around; 
     text-align: center;
     padding: 15px;
     margin: 10px;
     border-radius: 6px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); /* Sombra para cima */
-    flex-shrink: 0; /* Impede que o footer encolha */
-    gap: 10px; /* Espaço entre os filhos diretos do footer */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); 
+    flex-shrink: 0; 
+    gap: 10px; 
 }
 
 .div-footer {
@@ -87,11 +83,11 @@ footer{
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
-    padding: 20px; /* Padding um pouco maior */
-    margin: 15px 0; /* Margem vertical, 0 horizontal pois o main já centraliza */
+    padding: 20px; 
+    margin: 15px 0; 
     width: 90%;
-    max-width: 350px; /* Aumentar um pouco a largura máxima */
-    min-height: 250px; /* Aumentar um pouco a altura mínima */
+    max-width: 350px; 
+    min-height: 250px; 
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -99,45 +95,45 @@ footer{
 }
 
 .box h1 {
-    font-size: 1.6rem; /* Tamanho base um pouco maior */
-    margin-bottom: 15px; /* Mais espaço abaixo do título da box */
+    font-size: 1.6rem; 
+    margin-bottom: 15px; 
 }
 
 .botoes {
     padding: 10px;
     display: flex;
-    gap: 30px; /* Aumentar um pouco o gap */
+    gap: 30px;
     margin-bottom: 15px;
 }
 
 .botao {
     border-radius: 50%;
-    width: 65px;  /* Tamanho base um pouco maior */
-    height: 65px; /* Tamanho base um pouco maior */
-    font-size: 2.2rem; /* Tamanho base um pouco maior */
+    width: 65px; 
+    height: 65px; 
+    font-size: 2.2rem;
     background-color: #111111;
     box-shadow: inset 5px 5px 10px rgb(71, 71, 71);
     transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #000; /* Adicionar uma borda para melhor definição */
-    color: white; /* Cor do texto padrão para os botões */
+    border: 2px solid #000;
+    color: white;
 }
 
 .botao.pressionado {
     background-color: #333333;
-    box-shadow: inset 3px 3px 5px rgb(50, 50, 50), 0px 1px 1px rgba(0,0,0,0.15); /* Ajustar sombra */
+    box-shadow: inset 3px 3px 5px rgb(50, 50, 50), 0px 1px 1px rgba(0,0,0,0.15); 
     transform: scale(0.95);
 }
 
 .A {
-    color: #4CAF50; /* Verde mais vibrante */
+    color: #4CAF50;
     border-color: #3e8e41;
 }
 
 .B {
-    color: #f44336; /* Vermelho mais vibrante */
+    color: #f44336; 
     border-color: #d32f2f;
 }
 
@@ -151,8 +147,8 @@ footer{
 
 
 #imagem-git, #header-gif {
-    width: 35px; /* Tamanho base */
-    height: 35px; /* Tamanho base */
+    width: 35px; 
+    height: 35px; 
 }
 
 #header-gif {
@@ -176,7 +172,7 @@ footer{
 }
 
 
-/* Media Query para Tablets (orientação retrato e celulares maiores) - iPhone 7 (375px) entra aqui */
+/* Media Query para Tablets (orientação retrato e celulares maiores) */
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.5rem;
@@ -195,7 +191,7 @@ footer{
     }
 }
 
-/* Media Query para Celulares Menores (abaixo do iPhone 7/SE) */
+/* Media Query para Celulares Menores */
 @media (max-width: 360px) { /* Ponto de quebra para telas bem pequenas */
     header h1 {
         font-size: 1.3rem;
