@@ -7,7 +7,7 @@ Este projeto foi desenvolvido para fins educacionais, com o objetivo de receber 
 
 Este projeto faz parte da **Tarefa Prática da Unidade 2 – Capítulo 3** da Residência Técnica em Sistemas Embarcados, com o objetivo de:
 
-- Desenvolver **aplicações IoT com microcontroladores (BitDogLab/RP2040)**.
+- Desenvolver **aplicações IoT com microcontroladores (BitDogLab/Raspeberry Pi Pico W/Rp2040)**.
 - Utilizar comunicação sem fio (**Wi-Fi**) para enviar dados para um servidor.
 - Criar **dashboards web** para visualizar, em tempo real, os dados da placa.
 
@@ -126,5 +126,4 @@ Um sistema funcional que:
 - Recebe dados da placa
 - Emite os dados para dashboards em tempo real
 - Pode ser acessado publicamente via Railway
-
 ---
