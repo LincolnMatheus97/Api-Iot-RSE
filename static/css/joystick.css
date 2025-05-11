@@ -2,22 +2,22 @@
 * {
     box-sizing: border-box;
     font-family: 'VT323', monospace;
-}
-
-html, body { 
-    height: 100%; 
-    margin: 0; 
+    margin: 0;
     padding: 0;
 }
 
-body { 
-    background-color: #f0f0f0; 
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+html, body {
+    height: 100%;
 }
 
-header { 
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+header {
     height: 10vh;
     background-color: #448a46;
     display: flex;
@@ -25,69 +25,179 @@ header {
     justify-content: center;
     text-align: center;
     margin: 10px;
-    border-radius: 6px;
-    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    padding: 5px;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0 10px;
 }
 
 main {
-    height: 80vh;
-    font-family: Arial; 
-    text-align: center;
+    flex-grow: 1; /* Faz o main ocupar o espaço restante, empurrando o footer para baixo */
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* Empilha as .box por padrão (mobile-first) */
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    
+    padding: 15px;
+    gap: 15px;
 }
 
 footer{
-    height: 10vh; 
-    background-color: #ccc; 
-    display: flex; 
+    background-color: #ccc;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content:space-around;
+    justify-content: center;
     text-align: center;
+    padding: 10px;
     margin: 10px;
     border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    gap: 10px;
 }
 
 .div-footer {
     display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 10px;
 }
 
-.box { 
-    display: flex; 
-    flex-direction: column; 
+.box {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc; 
-    padding: 20px;
-    margin: 30px;
-    width: 250px;
-    height: 250px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+    width: 90%;
+    max-width: 380px;
+    min-height: 220px;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
 
-#rosaDosVentos {
-    width: 150px;
-    height: 150px; 
-    transition: transform 0.5s ease-out;
+.box h1 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
 }
 
-#imagem-git {
-    width: 50px;
-    height: 50px;
+.box p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+#rosaDosVentos {
+    width: 60%;
+    max-width: 150px;
+    height: auto;
+    transition: transform 0.5s ease-out;
+    margin-top: 5px;
+}
+
+.footer-icon {
+    width: 30px;
+    height: 30px;
 }
 
 #header-gif {
-    width: 50px;
-    height: 50px;
-    margin-left: 15px;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Telas maiores: tablets em paisagem e desktops pequenos */
+@media (min-width: 768px) {
+    main {
+        flex-direction: row; /* Coloca as .box lado a lado */
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .box {
+        width: 45%;
+        margin: 15px;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+    .box h1 {
+        font-size: 1.5rem;
+    }
+    .box p {
+        font-size: 1.1rem;
+    }
+    #rosaDosVentos {
+        width: 70%;
+        max-width: 170px;
+    }
+    .footer-icon {
+        width: 35px;
+        height: 35px;
+    }
+    .div-footer {
+        flex-direction: row;
+        gap: 20px;
+    }
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Telas de celular (orientação retrato) */
+@media (max-width: 480px) {
+    header {
+        height: auto;
+        min-height: 50px;
+        padding: 8px;
+    }
+    header h1 {
+        font-size: 1.2rem;
+    }
+    #header-gif {
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+    }
+    main {
+        padding: 10px;
+        gap: 10px;
+    }
+    .box {
+        padding: 10px;
+        min-height: auto;
+    }
+    .box h1 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    .box p {
+        font-size: 0.9rem;
+        margin: 4px 0;
+    }
+    #rosaDosVentos {
+        width: 80%;
+        max-width: 120px;
+    }
+    footer {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+    .footer-icon {
+        width: 25px;
+        height: 25px;
+    }
+    .div-footer {
+        gap: 8px;
+    }
+    .div-footer figure figcaption {
+        font-size: 0.7rem;
+    }
 }
