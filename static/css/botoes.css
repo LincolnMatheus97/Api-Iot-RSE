@@ -139,8 +139,8 @@ footer{
 
 /* Para a página do Joystick, se a rosa dos ventos estiver extrapolando: */
 #rosaDosVentos {
-    width: 70%; /* Ajustar conforme necessário */
-    max-width: 140px; /* Ajustar conforme necessário */
+    width: 70%; 
+    max-width: 140px; 
     height: auto;
     transition: transform 0.5s ease-out;
 }
@@ -154,23 +154,6 @@ footer{
 #header-gif {
     margin-left: 10px;
 }
-
-/* Media Query para Tablets e telas um pouco maiores */
-@media (min-width: 600px) {
-    .box {
-        /* width: 45%; */ /* Só se tiver múltiplas boxes lado a lado */
-        max-width: 400px;
-    }
-    .div-footer {
-        flex-direction: row;
-        gap: 30px;
-    }
-    footer {
-        flex-direction: row;
-        justify-content: space-between; /* Alinhar texto à esquerda e ícones à direita */
-    }
-}
-
 
 /* Media Query para Tablets (orientação retrato e celulares maiores) */
 @media (max-width: 768px) {
@@ -192,7 +175,7 @@ footer{
 }
 
 /* Media Query para Celulares Menores */
-@media (max-width: 360px) { /* Ponto de quebra para telas bem pequenas */
+@media (max-width: 480px) { 
     header h1 {
         font-size: 1.3rem;
     }
@@ -202,7 +185,7 @@ footer{
     .box {
         padding: 15px;
         min-height: auto;
-        width: 95%; /* Ocupar mais da tela */
+        width: 95%; 
     }
     .box h1 {
         font-size: 1.2rem;
