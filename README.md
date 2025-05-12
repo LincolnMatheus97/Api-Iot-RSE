@@ -92,8 +92,11 @@ Api-Iot-RSE/
 
 A aplicação está hospedada na Railway:
 
-👉 `https://atv-unid2-rse.up.railway.app`
+👉 `https://atv-unid2-rse.up.railway.app` 
 
+-- Acesse o link para visualizar os dashboards.
+- **Dashboard Joystick**: `https://atv-unid2-rse.up.railway.app/dashboard/joystick`
+- **Dashboard Botões**: `https://atv-unid2-rse.up.railway.app/dashboard/botoes`
 
 - Esse domínio executa o `app.py` continuamente
 - Recebe dados da placa e transmite para os navegadores
