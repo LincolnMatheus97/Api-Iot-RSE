@@ -2,116 +2,204 @@
 * {
     box-sizing: border-box;
     font-family: 'VT323', monospace;
+    margin: 0;
+    padding: 0; 
 }
 
-html, body { 
+html, body {
     height: 100%; 
-    margin: 0; 
-    padding: 0;
 }
 
-body { 
-    background-color: #f0f0f0; 
+body {
+    background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100%; 
+                     
 }
 
-header { 
-    height: 10vh;
+header {
+    min-height: 60px;
     background-color: #448a46;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 10px 15px; 
     margin: 10px;
     border-radius: 6px;
-    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    flex-shrink: 0; 
+}
+
+header h1 {
+    font-size: 1.6rem;
 }
 
 main {
-    height: 80vh;
-    font-family: Arial; 
+    flex-grow: 1; 
+    font-family: Arial, sans-serif;
     text-align: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    
+    justify-content: center; 
+    padding: 20px 15px;
+    width: 100%; 
 }
 
 footer{
-    height: 10vh; 
-    background-color: #ccc; 
-    display: flex; 
+    min-height: 60px;
+    background-color: #ccc;
+    display: flex;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around; 
     text-align: center;
+    padding: 15px;
     margin: 10px;
     border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); 
+    flex-shrink: 0; 
+    gap: 10px; 
 }
 
 .div-footer {
     display: flex;
     align-items: center;
     text-align: center;
+    gap: 15px;
 }
 
-.box { 
-    display: flex; 
-    flex-direction: column; 
+.div-footer figure {
+    margin: 5px 0;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc; 
-    padding: 20px;
-    margin: 30px;
-    width: 250px;
-    height: 250px;
+    border: 1px solid #ccc;
+    padding: 20px; 
+    margin: 15px 0; 
+    width: 90%;
+    max-width: 350px; 
+    min-height: 250px; 
     border-radius: 10px;
     background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     text-align: center;
 }
 
+.box h1 {
+    font-size: 1.6rem; 
+    margin-bottom: 15px; 
+}
+
 .botoes {
-    padding: 20px;
+    padding: 10px;
     display: flex;
-    gap: 50px;
+    gap: 30px;
+    margin-bottom: 15px;
 }
 
 .botao {
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    font-size: 2.5rem;
+    width: 65px; 
+    height: 65px; 
+    font-size: 2.2rem;
     background-color: #111111;
     box-shadow: inset 5px 5px 10px rgb(71, 71, 71);
     transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000;
+    color: white;
 }
 
 .botao.pressionado {
-    background-color: #333333; 
-    box-shadow: inset 3px 3px 5px rgb(50, 50, 50), 0px 2px 2px rgba(0,0,0,0.2); 
-    transform: scale(0.95); 
+    background-color: #333333;
+    box-shadow: inset 3px 3px 5px rgb(50, 50, 50), 0px 1px 1px rgba(0,0,0,0.15); 
+    transform: scale(0.95);
 }
 
 .A {
-    color: #35a539;
+    color: #4CAF50;
+    border-color: #3e8e41;
 }
 
 .B {
-    color: #b9190e;
+    color: #f44336; 
+    border-color: #d32f2f;
 }
 
-#imagem-git {
-    width: 50px;
-    height: 50px;
+#imagem-git, #header-gif {
+    width: 35px; 
+    height: 35px; 
 }
 
 #header-gif {
-    width: 50px;
-    height: 50px;
-    margin-left: 15px;
+    margin-left: 10px;
+}
+
+/* Media Query para Tablets (orientação retrato e celulares maiores) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    .box h1 {
+        font-size: 1.4rem;
+    }
+    .botao {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+    #imagem-git, #header-gif {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Media Query para Celulares Menores */
+@media (max-width: 480px) { 
+    header h1 {
+        font-size: 1.3rem;
+    }
+    #header-gif {
+        display: none;
+    }
+    .box {
+        padding: 15px;
+        min-height: auto;
+        width: 95%; 
+    }
+    .box h1 {
+        font-size: 1.2rem;
+    }
+    .botoes {
+        gap: 20px;
+    }
+    .botao {
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+    }
+    #rosaDosVentos {
+        max-width: 100px;
+    }
+
+    footer {
+        font-size: 0.85rem;
+        padding: 10px;
+        min-height: auto;
+    }
+    .div-footer figure figcaption {
+        font-size: 0.75rem;
+    }
+    #imagem-git {
+        width: 25px;
+        height: 25px;
+    }
 }
