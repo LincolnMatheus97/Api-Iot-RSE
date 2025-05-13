@@ -16,7 +16,7 @@ def receber_dados_joys():
     ultimo_dado_joy = data  #Salva os ultimos dados recebidos
     print(f"Dados recebidos joystick: {data}")
     socketio.emit('dados_joy', data) 
-    return {"status": "ok"}, 200
+    return {"status_joystick": "ok"}, 200
 
 @app.route('/dadosbotoes', methods=['POST'])
 def receber_dados_butt():
@@ -25,6 +25,7 @@ def receber_dados_butt():
     ultimo_dado_but = data  #Salva os ultimos dados recebidos
     print(f"Dados recebidos botoes: {data}")
     socketio.emit('dados_but', data) 
+    return {"status)_botoes": "ok"}, 200
 
 @app.route('/dashboard/botoes')
 def dashboard_botoes():
