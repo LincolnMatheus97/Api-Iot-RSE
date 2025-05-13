@@ -8,7 +8,16 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 #Armazenar ultimo dado recebido
 ultimo_dado = {}
 
-@app.route('/dados', methods = ['POST'])
+@app.route('/dadosjoystick', methods = ['POST'])
+def receber_dados():
+    global ultimo_dado
+    data= request.json
+    ultimo_dado = data  #Salva os ultimos dados recebidos
+    print(f"Dados recebidos: {data}")
+    socketio.emit('novo_dado', data) 
+    return {"status": "ok"}, 200
+
+@app.route('/dadosbotoes', methods = ['POST'])
 def receber_dados():
     global ultimo_dado
     data= request.json
