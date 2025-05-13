@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", (evento) => {
     const statusBotaoBElemento = getById("status_botao_b"); // Status do Botão B
 
     // Atualiza os elementos de texto com os dados recebidos
-    socket.on("novo_dado", (dado) => {
+    socket.on("dados_but", (dado) => {
         if (dado) {
             // Lógica para o Botão A
             if (typeof dado.botao_a !== 'undefined') {

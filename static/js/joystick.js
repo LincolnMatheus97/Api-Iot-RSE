@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", (evento) => {
         'CENTRO': 0 // Centro aponta para Norte por padrão
     };
 
-    socket.on("novo_dado", (dado) => {
+    socket.on("dados_joy", (dado) => {
         const elementoX = getById("x");
         const elementoY = getById("y");
         const elementoDirecao = getById("direcao");
