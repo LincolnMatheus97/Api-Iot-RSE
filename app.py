@@ -9,7 +9,7 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 ultimo_dado = {}
 
 @app.route('/dadosjoystick', methods = ['POST'])
-def receber_dados():
+def receber_dados_joys():
     global ultimo_dado
     data= request.json
     ultimo_dado = data  #Salva os ultimos dados recebidos
@@ -18,7 +18,7 @@ def receber_dados():
     return {"status": "ok"}, 200
 
 @app.route('/dadosbotoes', methods = ['POST'])
-def receber_dados():
+def receber_dados_butt():
     global ultimo_dado
     data= request.json
     ultimo_dado = data  #Salva os ultimos dados recebidos
