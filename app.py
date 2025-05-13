@@ -6,14 +6,15 @@ app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*") 
 
 #Armazenar ultimo dado recebido
-ultimo_dado = {}
+ultimo_dado_joy = {}
+ultimo_dado_but = {}
 
 @app.route('/dadosjoystick', methods = ['POST'])
 def receber_dados_joys():
     global ultimo_dado
     data= request.json
-    ultimo_dado = data  #Salva os ultimos dados recebidos
-    print(f"Dados recebidos: {data}")
+    ultimo_dado_joy = data  #Salva os ultimos dados recebidos
+    print(f"Dados recebidos joystick: {data}")
     socketio.emit('novo_dado', data) 
     return {"status": "ok"}, 200
 
@@ -21,8 +22,8 @@ def receber_dados_joys():
 def receber_dados_butt():
     global ultimo_dado
     data= request.json
-    ultimo_dado = data  #Salva os ultimos dados recebidos
-    print(f"Dados recebidos: {data}")
+    ultimo_dado_but = data  #Salva os ultimos dados recebidos
+    print(f"Dados recebidos botoes: {data}")
     socketio.emit('novo_dado', data) 
     return {"status": "ok"}, 200
 
