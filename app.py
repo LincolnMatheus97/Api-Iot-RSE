@@ -11,7 +11,7 @@ ultimo_dado_but = {}
 
 @app.route('/dadosjoystick', methods = ['POST'])
 def receber_dados_joys():
-    global ultimo_dado
+    global ultimo_dado_joy
     data= request.json
     ultimo_dado_joy = data  #Salva os ultimos dados recebidos
     print(f"Dados recebidos joystick: {data}")
@@ -20,7 +20,7 @@ def receber_dados_joys():
 
 @app.route('/dadosbotoes', methods = ['POST'])
 def receber_dados_butt():
-    global ultimo_dado
+    global ultimo_dado_but
     data= request.json
     ultimo_dado_but = data  #Salva os ultimos dados recebidos
     print(f"Dados recebidos botoes: {data}")
