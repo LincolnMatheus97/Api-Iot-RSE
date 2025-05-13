@@ -26,6 +26,14 @@ def receber_dados_butt():
     print(f"Dados recebidos botoes: {data}")
     socketio.emit('novo_dado', data) 
 
+@app.route('/dashboard/botoes')
+def dashboard_botoes():
+    return render_template('botoes.html')
+
+@app.route('/dashboard/joystick')
+def dashboard_joystick():
+    return render_template('joystick.html')
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
     socketio.run(app, host='0.0.0.0', port=port)
